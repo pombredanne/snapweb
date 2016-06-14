@@ -8,12 +8,12 @@ env:
   matrix:
     - TEST_SUITE="--static"
     - TEST_SUITE="--unit-go"
-    - TEST_SUITE="--unit-node"
+    - TEST_SUITE="--unit-js"
 
 cache:
   directories:
     - node_modules
 
 install:
-  - if [ "$TEST_SUITE" == "--unit-node" ]; then . $HOME/.nvm/nvm.sh && nvm install stable && nvm use stable; fi
+  - if [ "$TEST_SUITE" == "--unit-js" ]; then . $HOME/.nvm/nvm.sh && nvm install stable && nvm use stable; fi
 script: sh -v ./run-checks $TEST_SUITE
